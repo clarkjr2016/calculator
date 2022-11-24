@@ -37,4 +37,55 @@ function operate(...args) {
 };
 }
 
-console.log(operate(5,2,"-"));
+
+const del = document.querySelector("#Del"); // delete button
+const zero = document.querySelector("#zero")
+const one = document.querySelector("#one")
+const two = document.querySelector("#two")
+const three = document.querySelector("#three")
+const four = document.querySelector("#four")
+const five = document.querySelector("#five")
+const six = document.querySelector("#six")
+const seven = document.querySelector("#seven"); //variable for seven button
+const eight = document.querySelector("#eight")
+const nine = document.querySelector("#nine")
+const firstInput = document.querySelector("#first-input"); // variable for display text where answers are to be displayed
+
+
+del.addEventListener("click", () => {
+   const arrayOfInput = Array.from(firstInput.innerText);
+   arrayOfInput.pop();
+   firstInput.innerText = arrayOfInput.join("");
+
+})
+
+zero.addEventListener("click", (e) =>
+firstInput.innerText += e.target.innerText);
+
+one.addEventListener("click", (e) =>
+firstInput.innerText += e.target.innerText);
+
+two.addEventListener("click", (e) =>
+firstInput.innerText += e.target.innerText);
+
+three.addEventListener("click", (e) =>
+firstInput.innerText += e.target.innerText);
+
+four.addEventListener("click", (e) =>
+firstInput.innerText += e.target.innerText);
+
+five.addEventListener("click", (e) =>
+firstInput.innerText += e.target.innerText);
+
+six.addEventListener("click", (e) =>
+firstInput.innerText += e.target.innerText);
+
+seven.addEventListener("click", (e) =>
+firstInput.innerText += e.target.innerText);
+
+eight.addEventListener("click", (e) =>
+firstInput.innerText += e.target.innerText);
+
+
+nine.addEventListener("click", (e) =>
+firstInput.innerText += e.target.innerText);
