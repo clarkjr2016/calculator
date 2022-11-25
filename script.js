@@ -1,3 +1,5 @@
+
+
 function add(...args) {
     const array = Array.from(args);
    return array.reduce((total, newNum) => total + newNum, 0);
@@ -20,11 +22,12 @@ function multiply(...args) {
    
    };
 
-function operate(...args) {
-    const firstNum = args[0];
-    const secondNum = args[1];
+function operate() {
+    const firstNum = firstInput.innerText;
+    const secondNum = displayText.innerText; 
+    /*  Continue from here, figure out where to store these values in ordered to be displayed and manipulated */
     const operands = ["*","+","-","/"];
-    const operandPrompt = args[2]
+    const operandPrompt = operandSelection;
 
     if (operandPrompt  == operands[0]) {
         return multiply(firstNum, secondNum)
@@ -37,7 +40,8 @@ function operate(...args) {
 };
 }
 
-
+let operandSelection = "";
+const clear = document.querySelector("#Clear")
 const del = document.querySelector("#Del"); // delete button
 const zero = document.querySelector("#zero")
 const one = document.querySelector("#one")
@@ -50,17 +54,35 @@ const seven = document.querySelector("#seven"); //variable for seven button
 const eight = document.querySelector("#eight")
 const nine = document.querySelector("#nine")
 const firstInput = document.querySelector("#first-input"); // variable for display text where answers are to be displayed
+const division = document.querySelector("#division");
+const equal = document.querySelector("#equal")
+const displayText  = document.querySelector("#display-text");
 
+
+clear.addEventListener("click", () => {
+   firstInput.innerText = "";
+})
 
 del.addEventListener("click", () => {
-   const arrayOfInput = Array.from(firstInput.innerText);
-   arrayOfInput.pop();
-   firstInput.innerText = arrayOfInput.join("");
+    const arrayOfInput = Array.from(firstInput.innerText);
+    arrayOfInput.pop();
+    firstInput.innerText = arrayOfInput.join("");
+ 
+ })
+
+;
+
+division.addEventListener("click", (e) => {
+   operandSelection = e.target.innerText;
+   const result = operate();
+    console.log(result);
 
 })
 
+equal.addEventListener("click", operate);
+
 zero.addEventListener("click", (e) =>
-firstInput.innerText += e.target.innerText);
+firstInput.innerText += e.target.innerText); // adds the inne text from the associated 
 
 one.addEventListener("click", (e) =>
 firstInput.innerText += e.target.innerText);
@@ -89,3 +111,5 @@ firstInput.innerText += e.target.innerText);
 
 nine.addEventListener("click", (e) =>
 firstInput.innerText += e.target.innerText);
+
+
