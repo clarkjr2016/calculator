@@ -59,8 +59,15 @@ const equal = document.querySelector("#equal")
 const displayText  = document.querySelector("#display-text");
 
 
+equal.addEventListener("click", () => {
+const result = operate();
+displayText.innerText = result;
+})
+
+
 clear.addEventListener("click", () => {
    firstInput.innerText = "";
+   displayText.innerText = "";
 })
 
 del.addEventListener("click", () => {
@@ -73,9 +80,12 @@ del.addEventListener("click", () => {
 ;
 
 division.addEventListener("click", (e) => {
-   operandSelection = e.target.innerText;
-   const result = operate();
-    console.log(result);
+   operandSelection = e.target.innerText; // this selects the division symbol 
+   let savedNum = firstInput.innerText; // this stores the input that was originally entered in
+   firstInput.innerText = ""; // this clears the original input display
+   displayText.innerText = savedNum; // This moves the data that was on the first display to the second display
+  // const result = operate();
+    //console.log(result);
 
 })
 
