@@ -41,3 +41,28 @@ function operate(firstInput, secondInput, operator) {
 
   return returnValue;
 } // returns the result of the first and second input being placed into the desired operator function
+
+const del = document.querySelector("#Del");
+const ce = document.querySelector("#CE");
+const clear = document.querySelector("#Clear");
+const division = document.querySelector("#division");
+const seven = document.querySelector("#seven");
+const eight = document.querySelector("#eight");
+const nine = document.querySelector("#nine");
+const multiply = document.querySelector("#multiply");
+const four = document.querySelector("#four");
+const five = document.querySelector("#five");
+const six = document.querySelector("#six");
+const minus = document.querySelector("#minus");
+const one = document.querySelector("#one");
+const two = document.querySelector("#two");
+const three = document.querySelector("#three");
+const plus = document.querySelector("#plus");
+const zero = document.querySelector("#zero");
+const equal = document.querySelector("#equal");
+
+const displayText = document.querySelector("#display-text");
+
+one.addEventListener("click", (e) => {
+  displayText.innerText = e.target.innerText;
+});
