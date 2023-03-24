@@ -129,3 +129,19 @@ del.addEventListener("click", (e) => {
   let joinedArray = displayManipulate.join(""); //joining the array together to make a string
   displayValue.innerText = joinedArray; // displaying the string in the displayValue varaiable
 });
+
+clear.addEventListener("click", (e) => {
+  let joinedArray = displayManipulate.join(""); // storing a string version of the manipulated variable in a separate varaiable to be used later
+  joinedArray = ""; // setting that string variable to a value of empty text
+  displayValue.innerText = joinedArray; // displaying the empty text on the screen
+  displayManipulate.innerText = ""; //setting the manipulate value to empty text as well
+  displayManipulate = []; // establishing the displayManipulate variable back as empty array so that it can be utilized again.
+});
+
+plus.addEventListener("click", (e) => {
+  firstInput = displayValue.innerText * 1; // setting the firstInput variable as the value of whats in the display text and then making it a number
+  operator = "+"; // establishing the operator that's being selected as + so that it can be utilized in the operate function
+  displayValue.innerText = ""; //setting the display value back to empty text aafter plus has been clicked
+  displayManipulate.innerText = ""; //setting the manipulate value to empty text as well
+  displayManipulate = []; // establishing the displayManipulate variable back as empty array so that it can be utilized again.
+});
