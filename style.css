@@ -39,7 +39,7 @@ body {
 }
 
 #display-text {
-  font-size: 0.5em;
+  font-size: 2em;
   display: flex;
   text-align: center;
   min-width: 100%;
