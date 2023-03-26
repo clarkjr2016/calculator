@@ -48,6 +48,7 @@ function operate(firstInputPar, secondInputPar, operatorPar) {
   }
 
   displayValue.innerText = returnValue; // this is supposed to return the value of the operation on the display screen.
+
   displayManipulate = []; // establishing the displayManipulate variable back as empty array so that it can be utilized again.
   firstInput = "";
 }
@@ -159,6 +160,7 @@ plus.addEventListener("click", (e) => {
     operationCounter += 1;
   } else if (operationCounter > 0) {
     operate();
+    firstInput = displayValue.innerText * 1;
   }
 });
 
@@ -168,6 +170,10 @@ minus.addEventListener("click", (e) => {
     operator = "-"; // establishing the operator that's being selected as - so that it can be utilized in the operate function
     displayValue.innerText = ""; //setting the display value back to empty text after plus has been clicked
     displayManipulate = []; // establishing the displayManipulate variable back as empty array so that it can be utilized again.
+  } else if (operationCounter > 0) {
+    operate();
+    operator = "-";
+    firstInput = displayValue.innerText * 1;
   }
 });
 
@@ -177,6 +183,10 @@ multiplication.addEventListener("click", (e) => {
     operator = "*"; // establishing the operator that's being selected as * so that it can be utilized in the operate function
     displayValue.innerText = ""; //setting the display value back to empty text aafter plus has been clicked
     displayManipulate = []; // establishing the displayManipulate variable back as empty array so that it can be utilized again.
+  } else if (operationCounter > 0) {
+    operate();
+    operator = "*";
+    firstInput = displayValue.innerText * 1;
   }
 });
 
@@ -186,6 +196,10 @@ division.addEventListener("click", (e) => {
     operator = "/"; // establishing the operator that's being selected as / so that it can be utilized in the operate function
     displayValue.innerText = ""; //setting the display value back to empty text aafter plus has been clicked
     displayManipulate = []; // establishing the displayManipulate variable back as empty array so that it can be utilized again.
+  } else if (operationCounter > 0) {
+    operate();
+    operator = "/";
+    firstInput = displayValue.innerText * 1;
   }
 });
 
