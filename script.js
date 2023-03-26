@@ -25,20 +25,17 @@ function divide(...args) {
 let firstInput; // variable for first input
 let operator; // variable for operator that is selected
 let secondInput; // variable for second input
-let operationCounter = 0;
+let operationCounter = 0; // a counter variable that will increase by 1 when an operator has been selected
+let multipleOperator; // declaring a variable to store the result value of a first operation after a second operator has been selected
 
 function operate(firstInputPar, secondInputPar, operatorPar) {
   firstInputPar = firstInput; //setting this parameter to the firstInput value stored after an operator was clicked
   operatorPar = operator; // setting this parameter to the operator sign that is stored after the operator is clicked
-  secondInputPar = displayValue.innerText * 1;
-  secondInput = secondInputPar;
+  secondInputPar = displayValue.innerText * 1; //setting the parameter to what's typed on the display
+  secondInput = secondInputPar; //setting that same parameter to the script scope secondInput variable
 
   let operatorArray = ["+", "-", "*", "/"]; // creating an array so that user has ability to select what operator they will want to use.
-  let returnValue;
-
-  console.log(firstInputPar);
-  console.log(secondInputPar);
-  console.log(operatorPar);
+  let returnValue; //variable used to return the output from this function
 
   if (operatorPar == operatorArray[0]) {
     returnValue = add(firstInputPar, secondInputPar); // returns the result of the first and second input being placed into the add function
@@ -50,13 +47,10 @@ function operate(firstInputPar, secondInputPar, operatorPar) {
     returnValue = divide(firstInputPar, secondInputPar); // returns the result of the first and second input being placed into the divide function
   }
 
-  displayValue.innerText = returnValue;
-  displayManipulate.innerText = ""; //setting the manipulate value to empty text as well
+  displayValue.innerText = returnValue; // this is supposed to return the value of the operation on the display screen.
   displayManipulate = []; // establishing the displayManipulate variable back as empty array so that it can be utilized again.
   firstInput = "";
-  operationCounter = 0;
-  return returnValue;
-} // returns the result of the first and second input being placed into the desired operator function
+}
 
 const del = document.querySelector("#Del");
 const ce = document.querySelector("#CE");
@@ -153,51 +147,43 @@ clear.addEventListener("click", (e) => {
   displayManipulate.innerText = ""; //setting the manipulate value to empty text as well
   displayManipulate = []; // establishing the displayManipulate variable back as empty array so that it can be utilized again.
   firstInput = "";
+  operationCounter = 0;
 });
 
 plus.addEventListener("click", (e) => {
-  if (operationCounter > 0) {
-    operate();
-  } else {
-    operationCounter += 1;
+  if (operationCounter == 0) {
     firstInput = displayValue.innerText * 1; // setting the firstInput variable as the value of whats in the display text and then making it a number
     operator = "+"; // establishing the operator that's being selected as + so that it can be utilized in the operate function
-    displayValue.innerText = ""; //setting the display value back to empty text aafter plus has been clicked
+    displayValue.innerText = "";
     displayManipulate = []; // establishing the displayManipulate variable back as empty array so that it can be utilized again.
+    operationCounter += 1;
+  } else if (operationCounter > 0) {
+    operate();
   }
 });
 
 minus.addEventListener("click", (e) => {
-  if (operationCounter > 0) {
-    operate();
-  } else {
-    operationCounter += 1;
+  if (operationCounter == 0) {
     firstInput = displayValue.innerText * 1; // setting the firstInput variable as the value of whats in the display text and then making it a number
     operator = "-"; // establishing the operator that's being selected as - so that it can be utilized in the operate function
-    displayValue.innerText = ""; //setting the display value back to empty text aafter plus has been clicked
+    displayValue.innerText = ""; //setting the display value back to empty text after plus has been clicked
     displayManipulate = []; // establishing the displayManipulate variable back as empty array so that it can be utilized again.
   }
 });
 
 multiplication.addEventListener("click", (e) => {
-  if (operationCounter > 0) {
-    operate();
-  } else {
-    operationCounter += 1;
+  if (operationCounter == 0) {
     firstInput = displayValue.innerText * 1; // setting the firstInput variable as the value of whats in the display text and then making it a number
-    operator = "*"; // establishing the operator that's being selected as - so that it can be utilized in the operate function
+    operator = "*"; // establishing the operator that's being selected as * so that it can be utilized in the operate function
     displayValue.innerText = ""; //setting the display value back to empty text aafter plus has been clicked
     displayManipulate = []; // establishing the displayManipulate variable back as empty array so that it can be utilized again.
   }
 });
 
 division.addEventListener("click", (e) => {
-  if (operationCounter > 0) {
-    operate();
-  } else {
-    operationCounter += 1;
+  if (operationCounter == 0) {
     firstInput = displayValue.innerText * 1; // setting the firstInput variable as the value of whats in the display text and then making it a number
-    operator = "+"; // establishing the operator that's being selected as - so that it can be utilized in the operate function
+    operator = "/"; // establishing the operator that's being selected as / so that it can be utilized in the operate function
     displayValue.innerText = ""; //setting the display value back to empty text aafter plus has been clicked
     displayManipulate = []; // establishing the displayManipulate variable back as empty array so that it can be utilized again.
   }
